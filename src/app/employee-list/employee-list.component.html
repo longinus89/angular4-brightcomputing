@@ -1,0 +1,36 @@
+<div class="EmployeeList slider-left">
+
+  <div class="TitleBar row">
+    <div class="col-md-12">
+        <h1 class="">Employee Directory</h1>
+    </div>
+  </div>
+
+  <div class="SearchBar row">
+    <div class="form-group">
+      <input type="search" [(ngModel)]="query" placeholder="search" class="form-control">
+    </div>
+  </div>
+
+  <div class="EmployeeBodyList row">
+    <table class="table table-hover">
+      <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Details</th>
+      </tr>
+      <tr *ngFor="let employee of employees | search:'firstName,title':query; let index=index" class="">
+        <td><img [src]="photoFolder + employee.picture" width="50px"></td>
+        <td>{{employee.firstName}} {{employee.lastName}}</td>
+        <td>{{employee.title}}</td>
+        <td>
+          <button (click)="displayEmployee(employee.id)" class="btn btn-primary">
+            <span class="badge">{{employee.reports}}</span>
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

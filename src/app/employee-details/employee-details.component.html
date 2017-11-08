@@ -1,0 +1,60 @@
+<div class="EmployeeDetails slider-right" *ngIf="employee">
+  <div class="TitleBar row">
+    <div class="col-md-1">
+      <button (click)="back()" class="btn btn-primary">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </button>
+    </div>
+    <div class="col-md-11">
+        <h1 class="">Employee</h1>
+    </div>
+  </div>
+  <div class="EmployeeBodyList">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{employee.firstName}} {{employee.lastName}}</h3>
+      </div>
+    <div class="panel-body">
+      <img [src]="photoFolder + employee.picture" class="employee-image">
+      <table class="table table-hover">
+        <tr>
+          <td colspan="2">
+            <h2>{{employee.title}}</h2>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <h2>{{employee.city}}</h2>
+          </td>
+        </tr>
+        <tr *ngIf="employee.managerId">
+          <td class="col-md-3">Manager</td>
+          <td class="col-md-9">
+            <a (click)="displayEmployee(employee.managerId)">{{employee.managerName}}</a>
+          </td>
+        </tr>
+        <tr *ngIf="employee.reports">
+          <td class="col-md-3">Direct Reports</td>
+          <td class="col-md-9"><a (click)="displayEmployeeReports(employee.id)">{{employee.reports}}</a></td>
+        </tr>
+        <tr *ngIf="employee.officePhone">
+          <td class="col-md-3">Call Office</td>
+          <td class="col-md-9"><a href="tel:{{employee.officePhone}}">{{employee.officePhone}}</a></td>
+        </tr>
+        <tr *ngIf="employee.cellPhone">
+          <td class="col-md-3">Call Cell</td>
+          <td class="col-md-9"><a href="tel:{{employee.cellPhone}}">{{employee.cellPhone}}</a></td>
+        </tr>
+        <tr *ngIf="employee.cellPhone">
+          <td class="col-md-3">SMS</td>
+          <td class="col-md-9"><a href="sms:{{employee.cellPhone}}">{{employee.cellPhone}}</a></td>
+        </tr>
+        <tr *ngIf="employee.email">
+          <td class="col-md-3">Email address</td>
+          <td class="col-md-9"><a href="mailto:{{employee.email}}">{{employee.email}}</a></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

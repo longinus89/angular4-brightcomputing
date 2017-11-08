@@ -1,0 +1,20 @@
+@import '_variables';
+.EmployeeList {
+  .TitleBar {
+
+    h1 {
+      text-align: center;
+    }
+
+    padding: 0px 28px 0px;
+    margin-top: 20px;
+  }
+  .SearchBar {
+
+    margin-top: 20px;
+    padding: 28px 28px 0px 28px;
+  }
+  .EmployeeBodyList {
+    padding: 28px;
+  }
+}

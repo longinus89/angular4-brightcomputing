@@ -1,0 +1,33 @@
+<div class="EmployeeReports" *ngIf="employees">
+  <div class="TitleBar row">
+    <div class="col-md-1">
+      <button (click)="back()" class="btn btn-primary">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </button>
+    </div>
+    <div class="col-md-11">
+        <h1 class="">Employee Reports</h1>
+    </div>
+  </div>
+  <div class="EmployeeBodyList">
+     <table class="table table-hover">
+         <tr>
+           <th>Photo</th>
+           <th>Name</th>
+           <th>Title</th>
+           <th>Details</th>
+         </tr>
+         <tr *ngFor="let employee of employees; let index=index" class="">
+           <td><img class="EmployeeBodyImage" [src]="photoFolder + employee.picture"></td>
+           <td>{{employee.firstName}} {{employee.lastName}}</td>
+           <td>{{employee.title}}</td>
+           <td>
+             <button (click)="displayEmployee(employee.id)" class="btn btn-primary">
+               <span class="badge">{{employee.reports}}</span>
+               <span class="glyphicon glyphicon-chevron-right"></span>
+             </button>
+           </td>
+         </tr>
+     </table>
+   </div>
+</div>

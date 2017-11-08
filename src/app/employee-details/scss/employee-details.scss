@@ -1,0 +1,14 @@
+@import '_variables';
+.EmployeeDetails {
+  .TitleBar {
+
+    h1 {
+      text-align: center;
+    }
+    padding: 0px 28px 0px;
+    margin-top: 20px;
+  }
+  .EmployeeBodyList {
+    padding: 28px;
+  }
+}
